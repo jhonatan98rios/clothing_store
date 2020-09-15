@@ -1,0 +1,62 @@
+.navbar{
+  width: 100%;
+  height: 60px;
+  background-color: #FAFAFA;
+  display: flex;
+  align-items: center;
+
+  .container{
+    max-width: 1124px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0px 16px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .burger-menu{
+    display: flex;
+    align-items: center;
+
+    p{
+      font-family: Roboto, sans-serif;
+      font-weight: normal;
+      font-size: 16px;
+      color: #707070;
+      margin-left: 12px;
+    }
+  }
+
+  .features{
+    display: flex;
+    margin-right: 0px;
+
+    ul{
+      display: flex;
+      list-style: none;
+      align-items: center;
+
+      li{
+        display: flex;
+        margin-left: 27px;
+
+        img{
+          margin-right: 8px;
+        }
+
+        input{
+          width: 100px;
+          border: none;
+          border-bottom: 1px solid #838C91;
+          font-size: 14px;
+        }
+
+        p{
+          font-size: 16px;
+          font-family: Roboto, sans-serif;
+          color: #707070;
+        }
+      }
+    }
+  }
+}
