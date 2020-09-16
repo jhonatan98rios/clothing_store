@@ -1,6 +1,6 @@
 import React from 'react';
 import Home from '../pages/Home'
-import About from '../pages/About'
+import Product from '../pages/Product'
 
 import {
   BrowserRouter as Router,
@@ -18,8 +18,8 @@ function Routes() {
           <Home />
         </Route>
 
-        <Route path="/about" exact={true}>
-          <About />
+        <Route path="/product/:storeId/:productId">
+          <Product />
         </Route>
         
       </Switch>

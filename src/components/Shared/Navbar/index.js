@@ -2,7 +2,7 @@ import React from 'react';
 import './style.scss'
 import burger from '../../../assets/shared/icons/menu.svg'
 import search from '../../../assets/shared/icons/search.svg'
-import wishlist from '../../../assets/shared/icons/wishlist.svg'
+import favorites from '../../../assets/shared/icons/favorites.svg'
 import shopcar from '../../../assets/shared/icons/shopcar.svg'
 
 function Navbar() {
@@ -22,7 +22,7 @@ function Navbar() {
             </li>
 
             <li>
-              <img src={wishlist} alt="Icone de meus favoritos" height="20px"/>
+              <img src={favorites} alt="Icone de meus favoritos" height="20px"/>
               <p> Meus favoritos </p>
             </li>
 

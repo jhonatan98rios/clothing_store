@@ -1,0 +1,19 @@
+.content{
+  width: 100%;
+  background-color: #FAFAFA;
+  margin: 0 auto 58px;
+
+  .container{
+    max-width: 1124px;
+    width: 100%;
+    margin: 0 auto;
+    overflow-x: hidden;
+
+    .flickity-enabled{
+      
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
