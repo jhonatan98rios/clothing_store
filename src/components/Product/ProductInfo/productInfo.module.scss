@@ -1,6 +1,22 @@
 .productInfo{
     display: flex;
     flex-direction: column;
+    max-width: 786px;
+    width: 100%;
 
+  .thumb{
+    object-fit: cover;
+    //object-position: top;
+    object-position: 100% 30%;
+    max-height: 599px;
+    height: auto;
+  }
+
+  .description{
+    margin: 28px;
+     
+    font-size: 14px;
+    text-align: left;
+  }
     
 }

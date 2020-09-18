@@ -15,7 +15,7 @@ function ProductCard({content, storeId}) {
       <p> {content.name} </p>
       <span className="product-price"> {content.price} </span>
       <Link 
-        className="product-button" 
+        className="product-button radius-4" 
         to={`/product/${storeId}/${content.id}`}>
         Comprar
       </Link>

@@ -7,7 +7,7 @@ function Header({content}) {
     <div className={header}>
       <div className={container}>
         <img className={avatar} src={content.thumb} alt="avatar" />
-        <h2 className={name}> {content.name} </h2>
+        <h2 className={`${name} is-poppins`}> {content.name} </h2>
       </div>
     </div>
   );

@@ -16,8 +16,8 @@ function Breadcrumb({paths}) {
       
       <ul className={breadcrumb}>
 
-        {paths.map((path => (
-          <li>
+        {paths.map(((path, index) => (
+          <li key={index}>
             <p> {path} </p>
           </li>
         )))}

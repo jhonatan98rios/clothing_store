@@ -5,6 +5,10 @@ import ProductInfo from '../../components/Product/ProductInfo';
 import Details from '../../components/Product/Details';
 import Breadcrumb from '../../components/Product/Breadcrumb';
 
+import Utils from '../../utils/Utils'
+
+import {container} from './product.module.scss'
+
 function Product(props) {
 
   const { storeId, productId } = useParams()
@@ -20,12 +24,14 @@ function Product(props) {
   }, [storeId, productId])
 
   return (
-    <div className="product">
+    <div className={container}>
       { data && 
         <>
-          <Breadcrumb paths={[ 'Home', data.store, data.name ]} />
-          <ProductInfo content={data} />
-          <Details content={data} />
+          <Breadcrumb paths={[ 'Home', data.store, Utils.classifier(data.name) ]} />
+          <div className="is-row">
+            <ProductInfo content={data} />
+            <Details content={data} />
+          </div>
         </>
       }
     </div>

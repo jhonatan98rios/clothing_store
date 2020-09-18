@@ -5,6 +5,7 @@
 
 @each $space in $spaceamounts {
   @each $side in $sides {
+
     .m-#{str-slice($side, 0, 1)}-#{$space} {
       margin-#{$side}: #{$space}px !important;
     }
@@ -35,6 +36,55 @@
   }
 }
 
-.m-0-a{
-  margin: 0 auto;
+@each $font in $fontSizes {
+
+  .f-#{$font}{
+    font-size: #{$font}px !important;
+  }
 }
+
+
+.m-0-a{
+  margin: 0 auto !important;
+}
+
+.is-row{
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+.is-column{
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.align-center{
+  display: flex !important;
+  align-items: center !important;
+}
+
+.justified{
+  display: flex !important;
+  align-items: center !important;
+}
+
+.is-poppins{
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.is-hidden-mobile{
+  @media(max-width: 768px){
+    display: none;
+  }
+}
+
+.is-hidden-desktop{
+  @media(min-width: 769px){
+    display: none;
+  }
+}
+
+.radius-4{
+  border-radius: 4px;
+}
+

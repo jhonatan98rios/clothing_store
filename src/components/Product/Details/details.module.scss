@@ -1,3 +1,134 @@
-.details{
+.border_bg{
+  border-radius: 4px;
+  background-color: #000000;
+  color: #ffffff
+}
 
+.details{
+  width: 100%;
+  max-width: 314px;
+  margin: 0 auto;
+
+  .prodClass{
+    color: #707070;
+     
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .prodTitle{
+     
+    font-size: 20px;
+    color: #222222;
+  }
+
+  .prodSubtitle{
+     
+    font-size: 12px;
+    color: #222222;
+  }
+
+  .prodPrice{
+    font-size: 24px;
+    color: #222222;
+  }
+
+  .paymentOptions{
+    color: #707070;
+    font-size: 12px;
+    margin-bottom: 16px;
+  }
+
+  .prodSizesList{
+    display: flex;
+    margin-bottom: 39px;
+
+    .prodSize{
+      width: 24px;
+      height: 32px;
+      background-color: #E9E9E9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 5px 9px;
+    }
+  }
+
+  .prodQuantity{
+
+    select{
+      width: 86px;
+      height: 40px;
+      text-indent: 40%;
+
+      option{
+        text-align: center;
+        width: 86px;
+      }
+    }
+
+    .is-row{
+      align-items: center;
+
+      span{
+        font-size: 12px;
+        color: #222222
+      }
+    }
+  }
+
+  .buyButton, .carButton{
+    @extend .border_bg;
+    width: 314px;
+    height: 48px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 300;
+  }
+
+  .buyButton{
+    border: 1px solid #000000;
+  }
+
+  .carButton{
+    border: 1px solid #222222;
+    background-color: #ffffff;
+    color: #222222;
+  }
+
+  .cep{
+    margin: 50px 0px;
+    color: #222222;
+     
+
+    
+    .cepTitle{
+      font-size: 20px;
+    }
+    
+    .cepLegend{
+      margin: 6px 0px;
+    }
+
+    .cepInput{
+      height: 40px;
+      width: auto;
+      padding-left: 16px;
+      border-radius: 4px;
+    }
+
+    .buttonCalc{
+      @extend .border_bg;
+      width: 90px;
+      height: 40px;
+    }
+
+    a{
+      text-decoration: none;
+      color: #000000;
+      margin-top: 10px;
+      font-size: 12px;
+    }
+  }
+  
 }
