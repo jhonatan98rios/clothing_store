@@ -100,3 +100,17 @@
   color: #222222;
 }
 
+.is-row-desktop {
+  @media(min-width: 769px){
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.is-column-mobile{
+  @media(max-width: 768px){
+    display: flex;
+    flex-direction: column;
+  }
+}
+

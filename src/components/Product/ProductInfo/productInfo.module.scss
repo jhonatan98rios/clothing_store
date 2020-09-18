@@ -4,6 +4,10 @@
     max-width: 786px;
     width: 100%;
 
+    @media(max-width: 940px)and(min-width: 769px){
+      width: 50%;
+    }
+
   .thumb{
     object-fit: cover;
     //object-position: top;
