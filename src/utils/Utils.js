@@ -1,6 +1,7 @@
 export default class Utils{
 
     static classifier(text){
+        /* Convert the name of product in a product class */
         return text.split(' ')[0]+'s'
     }
 

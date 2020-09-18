@@ -11,7 +11,7 @@ function Navbar() {
     <navbar className={navbar}>
       <div className={container}>
         <div className={burgerMenu}>
-          <img src={burger} alt="menu de navegação" height="22px" />
+          <img src={burger} alt="menu de navegação" height="18px" />
           <p> Menu </p>
         </div>
         <div className={features}>

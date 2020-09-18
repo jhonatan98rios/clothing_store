@@ -4,12 +4,6 @@ import {container, breadcrumb} from './breadcrumb.module.scss'
 
 function Breadcrumb({paths}) {
 
-  /* const pathItens = [
-    'Home',
-    content.store,
-    content.name
-  ] */
-
   return (
     <div className={container}>
       <Link to="/" className="m-r-32"> Voltar </Link>
@@ -18,7 +12,7 @@ function Breadcrumb({paths}) {
 
         {paths.map(((path, index) => (
           <li key={index}>
-            <p> {path} </p>
+            <p className="f-14"> {path} </p>
           </li>
         )))}
 
