@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react'
 import Store from '../../components/Home/Store'
 import axios from 'axios';
 
+import Filter from '../../utils/Filter'
+
+import LocalStorage from '../../utils/LocalStorage'
+
 function Home() {
 
   const [data, setData] = useState([])
@@ -10,8 +14,13 @@ function Home() {
 
     axios.get('https://sandbox.houpa.app/api-tests/showcases').then(res => {
       setData(res.data.showcases)
-      console.log(res.data.showcases)
-    })
+
+      let showcases = res.data.showcases
+      let favoredList = LocalStorage.getData()
+
+      Filter.favoredFilter(showcases, favoredList)
+    }) 
+
 
   }, [])
 
