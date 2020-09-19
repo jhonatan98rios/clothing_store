@@ -10,6 +10,7 @@ function Home() {
 
     axios.get('https://sandbox.houpa.app/api-tests/showcases').then(res => {
       setData(res.data.showcases)
+      console.log(res.data.showcases)
     })
 
   }, [])
@@ -17,7 +18,11 @@ function Home() {
   return (
     <div className="Home">
       {data.map(store => (
-          <Store key={store.id} content={store} storeId={store.id} />
+        <Store 
+          key={store.id} 
+          content={store} 
+          storeId={store.id} 
+        />
       ))}
     </div>
   );

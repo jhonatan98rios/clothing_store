@@ -22,8 +22,8 @@ function Social() {
       <ul>
         <li className={`${iconList} is-row`}>
           {
-            socialList.map(social => (
-              <img className={icon} src={social} alt=""/>
+            socialList.map((social, index) => (
+              <img className={icon} src={social} alt="" key={index}/>
             ))
           }
         </li>

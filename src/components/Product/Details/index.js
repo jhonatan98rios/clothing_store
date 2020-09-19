@@ -22,12 +22,35 @@ import Utils from '../../../utils/Utils'
 import { Link } from 'react-router-dom'
 import Social from '../../Shared/Social'
 
-import favIcon from '../../../assets/shared/icons/red-favorites.svg'
+import LocalStorage from '../../../utils/LocalStorage'
 
-function Details({content}) {
+import redHeart from '../../../assets/shared/icons/red-favorites.svg'
+import grayHeart from '../../../assets/shared/icons/favorites.svg'
+
+function Details({content, storeId}) {
 
   const [installments, setInstallments] = useState(null)
   const [quantity, setQuantity] = useState(0)
+  const [favored, setFavored] = useState(false)
+
+  function favoredVerification(){
+    /* This method will change the icon of favored products */
+    let data = LocalStorage.getData()
+
+    data.forEach(d => {
+      if( d.store === storeId && d.product === content.id ){
+        setFavored(true)
+      }else{
+        setFavored(false)
+      }
+    })
+  }
+
+  function setFavorite(){
+    /* Define the product as favorite when icon was clicked */
+    LocalStorage.setData(storeId, content.id)
+    favoredVerification()
+  }
 
   useEffect(()=>{
     /* to get installments value from the content */
@@ -44,10 +67,17 @@ function Details({content}) {
   return (
     <div className={container}>
       <div className={details}>
+
+        <img 
+          src={favored ? redHeart : grayHeart} 
+          alt="favoritos" className={fav}
+          onClick={setFavorite}
+        />
+
         <p className={`${prodClass} f-16`}> { Utils.classifier(content.name) } </p>
         <h2 className="is-poppins text-gray f-20 m-b-8"> { content.name } </h2>
         <p className="text-gray f-12"> Produzido e entregue por {content.store} </p>
-        <p className="text-gray f-12 m-b-16"> Produzido e entregue por ... </p>
+        <p className="text-gray f-12 m-b-16"> Produzido e entregue por Tom Hanks </p>
         <span className={`${prodPrice} is-poppins text-gray`}> { content.price } </span>
         <p className={`${paymentOptions} f-12 m-b-16`}> ou até 5x de { installments } | Atacado mínimo: x peças </p>
         <p className="f-12"> Tamanho: </p>
@@ -87,15 +117,13 @@ function Details({content}) {
           <h3 className="is-poppins f-20 text-gray"> Frete </h3>
           <p className={cepLegend}> Calcule o frete estimado para sua região </p>
           <div className="is-row">
-            <input className={`${cepInput} m-r-16 m-b-8 p-l-16 radius-4`} type="text" value="" placeholder="CEP" />
+            <input className={`${cepInput} m-r-16 m-b-8 p-l-16 radius-4`} type="text" placeholder="CEP" />
             <button className={`${buttonCalc} radius-4 black-bg text-white`}> Calcular </button>
           </div>
           <Link to="/" className="f-12 m-t-10 text-gray"> Não sei meu CEP </Link>
         </div>
 
         <Social />
-
-        <img src={favIcon} alt="favoritos" className={fav}/>
 
       </div>
     </div>

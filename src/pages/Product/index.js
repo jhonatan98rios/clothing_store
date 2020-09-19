@@ -30,7 +30,7 @@ function Product(props) {
           <Breadcrumb paths={[ 'Home', data.store, Utils.classifier(data.name) ]} />
           <div className="is-row-desktop is-column-mobile">
             <ProductInfo content={data} />
-            <Details content={data} />
+            <Details content={data} storeId={storeId} />
           </div>
         </>
       }
