@@ -1,9 +1,8 @@
 .container{
-  //width: 100%;
-  margin-left: 10%;
+  margin-left: auto;
 
-  @media(max-width: 940px)and(min-width: 769px){
-    margin: 0 auto;
+  @media(max-width: 768px){
+    margin: 0;
   }
 }
 
@@ -16,6 +15,10 @@
 
   @media(max-width: 1240px){
     margin-right: auto;
+  }
+
+  @media(max-width: 768px){
+    max-width: 100%;
   }
 
   .prodClass{
@@ -75,6 +78,10 @@
     width: 314px;
     height: 48px;
     font-weight: 300;
+
+    @media(max-width: 768px){
+      width: 100%;
+    }
   }
 
   .buyButton{
