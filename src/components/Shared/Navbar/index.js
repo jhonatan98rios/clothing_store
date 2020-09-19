@@ -24,25 +24,26 @@ function Navbar() {
         <div className={features}>
           <ul>
 
-            <li>
-              <img src={search} alt="Icone de busca" height="20px"/>
+            <li className="m-l-24">
+              <img src={search} alt="Icone de busca" className="m-r-8" height="20px"/>
               <input 
                 type="text" 
                 placeholder="Busca" 
+                className="f-14"
                 value={currentData.inputText || ''} 
                 onChange={ (e) => currentData.doSearch(e) }
               />
             </li>
 
-            <li onClick={ (e) => currentData.showFavorites(e) }>
+            <li className="m-l-24" onClick={ (e) => currentData.showFavorites(e) }>
 
-              <img src={ currentData.isFiltered ? redHeart : grayHeart } alt="Icone de meus favoritos" height="20px"/>
-              <p className="is-hidden-mobile"> Meus favoritos </p>
+              <img src={ currentData.isFiltered ? redHeart : grayHeart } className="m-r-8" alt="Icone de meus favoritos" height="20px"/>
+              <p className="is-hidden-mobile f-16"> Meus favoritos </p>
             </li>
 
-            <li>
-              <img src={shopcar} alt="Icon de meu carrinho" height="20px"/>
-              <p className="is-hidden-mobile"> Meu carrinho | R$ 0,00 </p>
+            <li className="m-l-24">
+              <img src={shopcar} className="m-r-8" alt="Icone de meu carrinho" height="20px"/>
+              <p className="is-hidden-mobile f-16"> Meu carrinho | R$ 0,00 </p>
             </li>
 
           </ul>
