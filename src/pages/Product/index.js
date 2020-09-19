@@ -18,7 +18,6 @@ function Product(props) {
     if(storeId && productId){
       axios.get(`https://sandbox.houpa.app/api-tests/product/${storeId}/${productId}`).then(res => {
         setData(res.data.product)
-        console.log(res.data.product)
       })
     }
   }, [storeId, productId])

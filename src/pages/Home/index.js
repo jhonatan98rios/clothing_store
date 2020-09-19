@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import Store from '../../components/Home/Store'
 
 import DataContext from '../../store/DataContext'
@@ -6,10 +6,6 @@ import DataContext from '../../store/DataContext'
 function Home() {
 
   const currentData = useContext(DataContext)
-
-  useEffect(()=>{
-    console.log(currentData)
-  })
 
   return (
     <div className="Home m-t-64">
@@ -21,7 +17,15 @@ function Home() {
         />
       ))}
 
-      {  (!currentData.isFiltered && currentData.storeData) && currentData.storeData.map(store => (
+      { (currentData.inputText && currentData.favoredData) && currentData.favoredData.map(store => (
+        <Store 
+          key={store.id} 
+          content={store} 
+          storeId={store.id} 
+        />
+      ))}
+
+      {  (!currentData.isFiltered && !currentData.inputText && currentData.storeData) && currentData.storeData.map(store => (
         <Store 
           key={store.id} 
           content={store} 

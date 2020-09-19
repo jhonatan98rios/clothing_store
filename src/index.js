@@ -13,9 +13,14 @@ const App = () => {
   
   const [currentData, setCurrentData] = useState({})
   const [isFiltered, setFiltered] = useState(false)
+  const [inputText, setInputText] = useState('')
 
   function showFavorites(e){
     setFiltered(old => (!old))
+  }
+
+  function doSearch(e){
+    setInputText(e.target.value)
   }
 
   useEffect(() => {
@@ -28,11 +33,29 @@ const App = () => {
         storeData: res.data.showcases,
         favoredData: Filter.favoredFilter(res.data.showcases, favoredList),
         isFiltered,
-        showFavorites
+        showFavorites,
+        inputText,
+        doSearch
       })
     })
 
   }, [isFiltered])
+
+  useEffect(() => {
+
+    axios.get('https://sandbox.houpa.app/api-tests/showcases').then(res => {
+      
+      setCurrentData( oldData => {
+        return {
+          ...oldData,
+          storeData: res.data.showcases,
+          favoredData: Filter.searchFilter(res.data.showcases, inputText),
+          inputText,
+        }
+      })
+    })
+
+  }, [inputText])
 
   return(
     <React.StrictMode>

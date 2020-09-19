@@ -20,4 +20,30 @@ export default class Filter{
 
         return newShowcases
     }
+
+
+    static searchFilter(showcases, text){
+
+        let copyShowcases = JSON.parse(JSON.stringify(showcases))
+
+        let newShowcases = copyShowcases.map(sc => {
+            sc.products = []
+            return sc
+        })
+
+        showcases.forEach(stores => {
+            stores.products.forEach(product => {
+                if(product.name.includes(text)){
+                    newShowcases[stores.id-1].products.push( showcases[stores.id-1].products[product.id-1] )
+                }
+            })
+        })
+
+        newShowcases = copyShowcases.filter(ns => {
+            return ns.products.length > 0
+        })
+
+        return newShowcases
+
+    }
 }

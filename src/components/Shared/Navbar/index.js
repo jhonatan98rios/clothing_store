@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 
 import burger from '../../../assets/shared/icons/menu.svg'
 import search from '../../../assets/shared/icons/search.svg'
@@ -14,10 +14,6 @@ function Navbar() {
 
   const currentData = useContext(DataContext)
 
-  useEffect(() => {
-    console.log(currentData.isFiltered)
-  })
-
   return (
     <div className={navbar}>
       <div className={container}>
@@ -30,10 +26,15 @@ function Navbar() {
 
             <li>
               <img src={search} alt="Icone de busca" height="20px"/>
-              <input type="text" placeholder="Busca" />
+              <input 
+                type="text" 
+                placeholder="Busca" 
+                value={currentData.inputText || ''} 
+                onChange={ (e) => currentData.doSearch(e) }
+              />
             </li>
 
-            <li onClick={ (e) => { currentData.showFavorites(e) } }>
+            <li onClick={ (e) => currentData.showFavorites(e) }>
 
               <img src={ currentData.isFiltered ? redHeart : grayHeart } alt="Icone de meus favoritos" height="20px"/>
               <p className="is-hidden-mobile"> Meus favoritos </p>
