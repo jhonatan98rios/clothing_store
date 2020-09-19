@@ -6,6 +6,7 @@
   align-items: center;
   position: fixed;
   top: 0;
+  z-index: 99;
 
   .container{
     max-width: 1300px;
@@ -51,6 +52,10 @@
           border: none;
           border-bottom: 1px solid #838C91;
           font-size: 14px;
+
+          @media(max-width: 425px){
+            width: 100%;
+          }
         }
 
         p{

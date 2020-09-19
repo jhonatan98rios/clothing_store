@@ -31,7 +31,9 @@ const App = () => {
       
       setCurrentData({
         storeData: res.data.showcases,
-        favoredData: Filter.favoredFilter(res.data.showcases, favoredList),
+        favoredData: inputText ? 
+          Filter.searchFilter(res.data.showcases, inputText) : 
+          Filter.favoredFilter(res.data.showcases, favoredList),
         isFiltered,
         showFavorites,
         inputText,
@@ -39,9 +41,9 @@ const App = () => {
       })
     })
 
-  }, [isFiltered])
+  }, [isFiltered, inputText])
 
-  useEffect(() => {
+  /* useEffect(() => {
 
     axios.get('https://sandbox.houpa.app/api-tests/showcases').then(res => {
       
@@ -55,7 +57,7 @@ const App = () => {
       })
     })
 
-  }, [inputText])
+  }, [inputText]) */
 
   return(
     <React.StrictMode>
