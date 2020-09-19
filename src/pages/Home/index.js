@@ -12,7 +12,7 @@ function Home() {
   })
 
   return (
-    <div className="Home">
+    <div className="Home m-t-64">
       { (currentData.isFiltered && currentData.favoredData) && currentData.favoredData.map(store => (
         <Store 
           key={store.id} 

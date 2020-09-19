@@ -15,9 +15,7 @@ const App = () => {
   const [isFiltered, setFiltered] = useState(false)
 
   function showFavorites(e){
-    
     setFiltered(old => (!old))
-
   }
 
   useEffect(() => {
@@ -35,28 +33,6 @@ const App = () => {
     })
 
   }, [isFiltered])
-
-
-  /* useEffect(()=>{
-
-    axios.get('https://sandbox.houpa.app/api-tests/showcases').then(res => {
-
-      let favoredList = LocalStorage.getData()
-      
-      setCurrentData(oldData =>{
-        return {
-          ...oldData,
-          storeData: res.data.showcases,
-          favoredData: Filter.favoredFilter(res.data.showcases, favoredList),
-          isFiltered,
-        }
-      })
-    })
-
-    console.log(isFiltered)
-
-  }, [isFiltered]) */
-
 
   return(
     <React.StrictMode>
