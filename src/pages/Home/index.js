@@ -1,32 +1,27 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import Store from '../../components/Home/Store'
-import axios from 'axios';
 
-import Filter from '../../utils/Filter'
-
-import LocalStorage from '../../utils/LocalStorage'
+import DataContext from '../../store/DataContext'
 
 function Home() {
 
-  const [data, setData] = useState([])
+  const currentData = useContext(DataContext)
 
-  useEffect(() => {
-
-    axios.get('https://sandbox.houpa.app/api-tests/showcases').then(res => {
-      setData(res.data.showcases)
-
-      let showcases = res.data.showcases
-      let favoredList = LocalStorage.getData()
-
-      Filter.favoredFilter(showcases, favoredList)
-    }) 
-
-
-  }, [])
+  useEffect(()=>{
+    console.log(currentData)
+  })
 
   return (
     <div className="Home">
-      {data.map(store => (
+      { (currentData.isFiltered && currentData.favoredData) && currentData.favoredData.map(store => (
+        <Store 
+          key={store.id} 
+          content={store} 
+          storeId={store.id} 
+        />
+      ))}
+
+      {  (!currentData.isFiltered && currentData.storeData) && currentData.storeData.map(store => (
         <Store 
           key={store.id} 
           content={store} 

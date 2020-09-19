@@ -1,5 +1,5 @@
-import React from 'react';
-import LocalStorage from '../../../utils/LocalStorage'
+import React, { useContext } from 'react';
+//import LocalStorage from '../../../utils/LocalStorage'
 
 import burger from '../../../assets/shared/icons/menu.svg'
 import search from '../../../assets/shared/icons/search.svg'
@@ -8,12 +8,11 @@ import shopcar from '../../../assets/shared/icons/shopcar.svg'
 
 import { navbar, container, burgerMenu, features } from './navbar.module.scss'
 
+import DataContext from '../../../store/DataContext'
+
 function Navbar() {
 
-  function showFavorite(){
-    let data = LocalStorage.getData()
-    console.log(data)
-  }
+  const currentData = useContext(DataContext)
 
   return (
     <div className={navbar}>
@@ -30,7 +29,7 @@ function Navbar() {
               <input type="text" placeholder="Busca" />
             </li>
 
-            <li onClick={showFavorite}>
+            <li onClick={ (e) => { currentData.showFavorites(e) } }>
               <img src={favorites} alt="Icone de meus favoritos" height="20px"/>
               <p className="is-hidden-mobile"> Meus favoritos </p>
             </li>

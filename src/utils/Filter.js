@@ -1,21 +1,23 @@
 export default class Filter{
 
     static favoredFilter(showcases, favoredList){
+        
+        let copyShowcases = JSON.parse(JSON.stringify(showcases))
 
-        let newShowcases = []
-
-        showcases.forEach(store => {
-            store.products.forEach(prod => {
-                favoredList.forEach(favored => {
-
-                    if ( store.id === favored.store && prod.id === favored.product){
-                    newShowcases.push(store)
-                    }
-                })
-            })        
-
+        let newShowcases = copyShowcases.map(sc => {
+            sc.products = []
+            return sc
         })
 
-        console.log(newShowcases)
+        favoredList.forEach(f => {
+            
+            newShowcases[f.store-1].products.push( showcases[f.store-1].products[f.product-1] )
+        })
+
+        newShowcases = newShowcases.filter(ns => {
+            return ns.products.length > 0
+        })
+
+        return newShowcases
     }
 }
