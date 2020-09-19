@@ -16,13 +16,15 @@ function ProductCard({content, storeId}) {
     /* This method will change the icon of favored products */
     let data = LocalStorage.getData()
 
+    let isFavored = false
+
     data.forEach(d => {
       if( d.store === storeId && d.product === content.id ){
-        setFavored(true)
-      }else{
-        setFavored(false)
+        isFavored = true
       }
     })
+
+    setFavored(isFavored)
   }
 
   function setFavorite(){
