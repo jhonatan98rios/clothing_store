@@ -17,7 +17,7 @@ function Social() {
   ]
 
   return (
-    <div className={`${social} is-column`}>
+    <div className={`${social} is-column p-b-32`}>
       <p> Compartilhar </p>
       <ul>
         <li className={`${iconList} is-row`}>

@@ -74,12 +74,17 @@ function Details({content, storeId}) {
           onClick={setFavorite}
         />
 
+        {/* Product data and description */}
+
         <p className={`${prodClass} f-16`}> { Utils.classifier(content.name) } </p>
         <h2 className="is-poppins text-gray f-20 m-b-8"> { content.name } </h2>
         <p className="text-gray f-12"> Produzido e entregue por {content.store} </p>
         <p className="text-gray f-12 m-b-16"> Produzido e entregue por Tom Hanks </p>
         <span className={`${prodPrice} is-poppins text-gray`}> { content.price } </span>
         <p className={`${paymentOptions} f-12 m-b-16`}> ou até 5x de { installments } | Atacado mínimo: x peças </p>
+
+        {/* Sizes selection */}
+
         <p className="f-12"> Tamanho: </p>
         <div className={prodSizesList}>
           {
@@ -88,6 +93,8 @@ function Details({content, storeId}) {
             ))  
           }
         </div>
+
+        {/* Quantity Selection */}
 
         <div className={`${prodQuantity} m-b-24`}>
           <p className="f-16 text-gray"> Quantidade </p>
@@ -104,6 +111,8 @@ function Details({content, storeId}) {
           </div>
         </div>
 
+        {/* Button */}
+
         <div className="is-column">
           <button className={`${buyButton} radius-4 black-bg text-white f-18 m-b-10`}>
             Comprar
@@ -112,6 +121,8 @@ function Details({content, storeId}) {
             Adicionar ao carrinho
           </button>
         </div>
+
+        {/* Transport */}
 
         <div className={`${cep} text-gray m-t-48 m-b-48`}>
           <h3 className="is-poppins f-20 text-gray"> Frete </h3>

@@ -23,7 +23,7 @@ function Product(props) {
   }, [storeId, productId])
 
   return (
-    <div className={container}>
+    <div className={`${container} m-t-64`}>
       { data && 
         <>
           <Breadcrumb paths={[ 'Home', data.store, Utils.classifier(data.name) ]} />
