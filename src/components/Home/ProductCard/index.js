@@ -14,7 +14,7 @@ function ProductCard({content, storeId}) {
 
   function favoredVerification(){
     /* This method will change the icon of favored products */
-    let data = LocalStorage.getData()
+    let data = LocalStorage.getData('favoriteProducts')
 
     let isFavored = false
 
@@ -29,7 +29,7 @@ function ProductCard({content, storeId}) {
 
   function setFavorite(){
     /* Define the product as favorite when icon was clicked */
-    LocalStorage.setData(storeId, content.id)
+    LocalStorage.setData(storeId, content.id, 'favoriteProducts')
     favoredVerification()
   }
 

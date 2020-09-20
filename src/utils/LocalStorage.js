@@ -1,14 +1,14 @@
 export default class LocalStorage{
 
-  static getData(){
-    let data = localStorage.getItem('favoriteProducts');
+  static getData(key){
+    let data = localStorage.getItem(key);
     if(!data) return []
     return JSON.parse(data)
   }
 
-  static setData(store, product){
+  static setData(store, product, key){
     /* If havent localstorage, return empty array */
-    let data = LocalStorage.getData()
+    let data = LocalStorage.getData(key)
     if(!data){
       data = []
     }
@@ -31,8 +31,7 @@ export default class LocalStorage{
       })
     }
 
-
     let newData = JSON.stringify(data)
-    localStorage.setItem('favoriteProducts', newData)
+    localStorage.setItem(key, newData)
   }
 }

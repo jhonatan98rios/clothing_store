@@ -1,49 +1,47 @@
-export default class Filter{
+export default class Filter {
 
-    static favoredFilter(showcases, favoredList){
-        
-        let copyShowcases = JSON.parse(JSON.stringify(showcases))
+  static favoredFilter(showcases, favoredList) {
 
-        let newShowcases = copyShowcases.map(sc => {
-            sc.products = []
-            return sc
-        })
+    let copyShowcases = JSON.parse(JSON.stringify(showcases))
 
-        favoredList.forEach(f => {
-            
-            newShowcases[f.store-1].products.push( showcases[f.store-1].products[f.product-1] )
-        })
+    let newShowcases = copyShowcases.map(sc => {
+      sc.products = []
+      return sc
+    })
 
-        newShowcases = newShowcases.filter(ns => {
-            return ns.products.length > 0
-        })
+    favoredList.forEach(f => {
+      newShowcases[f.store - 1].products.push(showcases[f.store - 1].products[f.product - 1])
+    })
 
-        return newShowcases
-    }
+    newShowcases = newShowcases.filter(ns => {
+      return ns.products.length > 0
+    })
+
+    return newShowcases
+  }
 
 
-    static searchFilter(showcases, text){
+  static searchFilter(showcases, text) {
 
-        let copyShowcases = JSON.parse(JSON.stringify(showcases))
+    let copyShowcases = JSON.parse(JSON.stringify(showcases))
 
-        let newShowcases = copyShowcases.map(sc => {
-            sc.products = []
-            return sc
-        })
+    let newShowcases = copyShowcases.map(sc => {
+      sc.products = []
+      return sc
+    })
 
-        showcases.forEach(stores => {
-            stores.products.forEach(product => {
-                if(product.name.includes(text)){
-                    newShowcases[stores.id-1].products.push( showcases[stores.id-1].products[product.id-1] )
-                }
-            })
-        })
+    showcases.forEach(stores => {
+      stores.products.forEach(product => {
+        if (product.name.includes(text)) {
+          newShowcases[stores.id - 1].products.push(showcases[stores.id - 1].products[product.id - 1])
+        }
+      })
+    })
 
-        newShowcases = copyShowcases.filter(ns => {
-            return ns.products.length > 0
-        })
+    newShowcases = copyShowcases.filter(ns => {
+      return ns.products.length > 0
+    })
 
-        return newShowcases
-
-    }
+    return newShowcases
+  }
 }

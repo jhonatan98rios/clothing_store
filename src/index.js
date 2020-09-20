@@ -27,7 +27,7 @@ const App = () => {
 
     axios.get('https://sandbox.houpa.app/api-tests/showcases').then(res => {
 
-      let favoredList = LocalStorage.getData()
+      let favoredList = LocalStorage.getData('favoriteProducts')
       
       setCurrentData({
         storeData: res.data.showcases,
@@ -42,22 +42,6 @@ const App = () => {
     })
 
   }, [isFiltered, inputText])
-
-  /* useEffect(() => {
-
-    axios.get('https://sandbox.houpa.app/api-tests/showcases').then(res => {
-      
-      setCurrentData( oldData => {
-        return {
-          ...oldData,
-          storeData: res.data.showcases,
-          favoredData: Filter.searchFilter(res.data.showcases, inputText),
-          inputText,
-        }
-      })
-    })
-
-  }, [inputText]) */
 
   return(
     <React.StrictMode>
